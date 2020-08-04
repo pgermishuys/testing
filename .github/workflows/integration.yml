@@ -1,0 +1,20 @@
+name: Integration suite
+on: 
+    push:
+      paths:
+        - 'svc/**'
+      branches:
+        - master
+
+jobs:
+  backend:
+    name: Backend
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Integration tests
+        if: steps.backend-changed.outputs.changed == 'true'
+        run: |
+          echo "running the integration tests"
