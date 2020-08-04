@@ -16,7 +16,7 @@ jobs:
       - uses: marceloprado/has-changed-path@master
         id: backend-changed
         with:
-          paths: svc
+          paths: svc/
 
       - name: Integration tests
         if: steps.backend-changed.outputs.changed == 'true'
